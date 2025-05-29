@@ -22,7 +22,7 @@ const server = http.createServer(app);
 // Para PRODUÇÃO (Render): use a URL EXATA do seu frontend no Render (ex: 'https://seunome-frontend.onrender.com').
 const io = new Server(server, {
     cors: {
-        origin: "./public/index.html", // MUITO CUIDADO COM ISTO EM PRODUÇÃO! Use a URL específica do seu frontend.
+        origin: "https://chat-nyze.onrender.com", // MUITO CUIDADO COM ISTO EM PRODUÇÃO! Use a URL específica do seu frontend.
         methods: ["GET", "POST"]
     }
 });
