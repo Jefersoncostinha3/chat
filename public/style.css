@@ -1,0 +1,470 @@
+/* public/style.css */
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupa a altura total da viewport */
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+}
+
+main {
+    flex: 1; /* Permite que a main ocupe o espaço restante */
+    padding: 20px;
+    max-width: 1200px; /* Largura máxima para desktops */
+    margin: 20px auto; /* Centraliza a main */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    color: #007bff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Seções principais (login, chat, video) */
+section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+section:last-of-type { /* Remove a borda e margem da última seção */
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* --- Estilos de Autenticação --- */
+.auth-forms {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os formulários quebrem a linha em telas menores */
+    gap: 20px;
+    justify-content: center;
+}
+
+.auth-forms form {
+    flex: 1; /* Permite que os formulários cresçam e encolham */
+    min-width: 280px; /* Largura mínima para evitar que fiquem muito pequenos */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.auth-forms form h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.auth-forms input[type="text"],
+.auth-forms input[type="password"] {
+    width: calc(100% - 20px); /* Ajusta para padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+}
+
+.auth-forms button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.auth-forms button:hover {
+    background-color: #218838;
+}
+
+/* --- Estilos do Chat e Salas --- */
+.room-management {
+    display: flex;
+    flex-direction: column; /* Em colunas por padrão */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.room-management h3 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+#room-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    gap: 8px;
+}
+
+.room-item {
+    background-color: #e9e9e9;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Evita que o nome da sala quebre */
+}
+
+.room-item:hover {
+    background-color: #ddd;
+}
+
+.room-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.create-room {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.create-room input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-room button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-room button:hover {
+    background-color: #0056b3;
+}
+
+#chat-window {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o chat-messages não transborde */
+    height: 400px; /* Altura fixa para desktops */
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#chat-messages {
+    flex: 1; /* Ocupa o espaço restante */
+    padding: 10px;
+    overflow-y: auto; /* Scroll para mensagens */
+    background-color: #e6f7ff;
+}
+
+.message {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.message .username {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.message .timestamp {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.message .content audio {
+    width: 100%;
+    max-width: 300px; /* Limita a largura do player de áudio */
+}
+
+#message-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    gap: 10px; /* Espaçamento entre os elementos */
+}
+
+#message-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#message-input-container button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Evita que o texto do botão quebre */
+}
+
+#message-input-container button:hover {
+    background-color: #0056b3;
+}
+
+#audio-record-button {
+    background-color: #dc3545; /* Cor para o botão de gravação */
+}
+
+#audio-record-button:hover {
+    background-color: #c82333;
+}
+
+/* --- Estilos de Vídeo --- */
+.video-controls {
+    display: flex;
+    flex-direction: column; /* Vídeo e botões em coluna por padrão */
+    gap: 10px;
+    align-items: center; /* Centraliza horizontalmente */
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#localVideo {
+    width: 100%; /* Largura total do contêiner */
+    max-width: 480px; /* Largura máxima para o vídeo local */
+    height: auto; /* Mantém a proporção */
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-controls div { /* Contêiner dos botões de toggle (mic/camera) */
+    display: flex;
+    gap: 10px;
+}
+
+.video-controls button {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.video-controls button:hover {
+    background-color: #5a6268;
+}
+
+.remote-videos-grid {
+    display: grid; /* Usa CSS Grid para os vídeos remotos */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas auto-ajustáveis */
+    gap: 15px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.remote-video-feed {
+    width: 100%; /* Cada vídeo remoto ocupa a largura da sua célula no grid */
+    height: auto; /* Mantém a proporção */
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+/* --- Media Queries para responsividade --- */
+
+/* Para telas menores que 992px (desktops menores, tablets) */
+@media (max-width: 992px) {
+    main {
+        margin: 15px auto;
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 1em;
+    }
+
+    .remote-videos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+    }
+}
+
+
+/* Para telas menores que 768px (tablets em retrato e celulares maiores) */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+        margin: 10px auto;
+        box-shadow: none; /* Remove sombra em telas muito pequenas */
+    }
+
+    section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .auth-forms {
+        flex-direction: column; /* Formulários um abaixo do outro */
+    }
+
+    .auth-forms form {
+        min-width: unset; /* Remove largura mínima */
+        width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    .room-management {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #room-list {
+        justify-content: flex-start; /* Alinha salas à esquerda */
+    }
+
+    .room-item {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    .create-room {
+        flex-direction: column; /* Input e botão de criar sala em colunas */
+        gap: 8px;
+    }
+    .create-room button, .create-room input {
+        width: 100%;
+    }
+
+
+    #chat-window {
+        height: 300px; /* Altura do chat um pouco menor em telas menores */
+    }
+
+    #message-input-container {
+        flex-wrap: wrap; /* Permite que os elementos quebrem a linha */
+        flex-direction: row; /* Volta a ser linha, mas permite quebra */
+        gap: 8px;
+    }
+
+    #message-input {
+        flex: 1 1 100%; /* Ocupa a largura total na linha */
+        margin-right: 0; 
+    }
+
+    #message-input-container button {
+        flex: 1 1 48%; /* Botões dividem a largura, 2 por linha */
+        padding: 10px;
+    }
+    /* Para telas muito pequenas, forçar botões em linha única */
+    @media (max-width: 400px) {
+        #message-input-container {
+            flex-direction: column;
+        }
+        #message-input-container button {
+            width: 100%;
+            flex: unset;
+        }
+    }
+
+
+    .video-controls {
+        flex-direction: column; /* Garante que o vídeo e controles fiquem em coluna */
+    }
+
+    #localVideo {
+        max-width: 100%; /* Garante que o vídeo local se ajuste */
+    }
+
+    .remote-videos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Vídeos remotos ainda menores */
+        gap: 8px;
+    }
+}
+
+/* Para telas ainda menores, como celulares pequenos (max-width: 480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    header p {
+        font-size: 0.9em;
+    }
+    h2, h3 {
+        font-size: 1.3em; /* Reduz o tamanho das fontes dos títulos */
+    }
+
+    #chat-window {
+        height: 250px;
+    }
+
+    .remote-videos-grid {
+        grid-template-columns: 1fr; /* Um vídeo por linha em telas muito pequenas */
+        gap: 5px;
+    }
+}
+
+/* Estilos para o ícone de carregamento ou outros elementos visuais */
+/* Ex: spinners ou indicadores de estado */
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #007bff;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Era Chat & Calls</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>The New Era</h1>
+        <p>Bem-vindo(a), <span id="logged-in-username">Convidado</span>!</p> 
+    </header>
+
+    <main>
+        <section id="login-section">
+            <h2>Autenticação</h2>
+            <div class="auth-forms">
+                <form id="register-form">
+                    <h3>Registrar</h3>
+                    <input type="text" id="register-username" placeholder="Usuário" required>
+                    <input type="password" id="register-password" placeholder="Senha" required>
+                    <button type="submit">Registrar</button>
+                </form>
+                <form id="login-form">
+                    <h3>Login</h3>
+                    <input type="text" id="login-username" placeholder="Usuário" required>
+                    <input type="password" id="login-password" placeholder="Senha" required>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="chat-section" style="display: none;">
+            <h2>Sala Atual: <span id="current-room">público</span></h2>
+
+            <div class="room-management">
+                <h3>Salas Disponíveis</h3>
+                <ul id="room-list">
+                    </ul>
+                <div class="create-room">
+                    <input type="text" id="new-room-input" placeholder="Nome da nova sala">
+                    <button id="create-room-button">Criar Sala</button>
+                </div>
+            </div>
+
+            <div id="chat-window">
+                <div id="chat-messages">
+                    </div>
+                <div id="message-input-container">
+                    <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+                    <button id="send-button">Enviar</button>
+                    <button id="audio-record-button">Gravar Áudio</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-section" style="display: none;">
+            <h2>Sua Câmera</h2>
+            <div class="video-controls">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div>
+                    <button id="toggleMic">Toggle Mic</button>
+                    <button id="toggleCamera">Toggle Camera</button>
+                </div>
+            </div>
+            
+            <h3>Participantes na Sala</h3>
+            <div id="remoteVideosContainer" class="remote-videos-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The New Era. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
