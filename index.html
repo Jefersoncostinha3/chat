@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Lançamento Se Aproxima!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop id="myVideo">
+            <source src="https://videos.pexels.com/video-files/3191572/3191572-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="main-title">Prestes a Acontecer!</h1>
+            <p class="subtitle">Fique ligado para não perder o que vem por aí.</p>
+        </header>
+
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span id="days"></span>
+                <p>Dias</p>
+            </div>
+            <div class="countdown-item">
+                <span id="hours"></span>
+                <p>Horas</p>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes"></span>
+                <p>Minutos</p>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds"></span>
+                <p>Segundos</p>
+            </div>
+        </div>
+
+        <button class="call-to-action">Saiba Mais em Breve!</button>
+
+        <footer>
+            <p>&copy; 2025 The New Era. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
